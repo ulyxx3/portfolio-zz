@@ -1,10 +1,7 @@
 /* =====================================================
    SCRIPT.JS — Portfolio ULYXX3
-   Logique du site : injection DOM, animations, filtres,
-   formulaire, scroll reveal.
-
-   Les données (projets, socials, skills) sont dans :
-   → assets/js/data.js  (chargé avant ce fichier)
+   Logique du site
+   Les données sont dans assets/js/data.js
 ===================================================== */
 
 
@@ -17,7 +14,7 @@ function toggleMenu() {
   }
 }
 
-// ─── COMPTEUR ANIMÉ ───────────────────────────────────
+// COMPTEUR ANIMÉ
 function animerCompteur(idElement, valeurFinale, duree) {
   var el = document.getElementById(idElement);
   if (!el) return;
@@ -35,7 +32,7 @@ function animerCompteur(idElement, valeurFinale, duree) {
   }, 16);
 }
 
-// ─── INJECTION : SKILLS ───────────────────────────────
+// INJECTION : SKILLS
 function afficherSkills() {
   var conteneur = document.getElementById('skills-grid');
   if (!conteneur) return;
@@ -48,7 +45,7 @@ function afficherSkills() {
   }
 }
 
-// ─── INJECTION : PROJETS (accueil — 6 max) ────────────
+// INJECTION : PROJETS (accueil)
 function afficherProjetsAccueil() {
   var conteneur = document.getElementById('projects-grid');
   if (!conteneur) return;
@@ -59,7 +56,7 @@ function afficherProjetsAccueil() {
   }
 }
 
-// ─── INJECTION : PROJETS (page projets — tous) ────────
+// INJECTION : PROJETS (page projets)
 function afficherTousProjets(filtre) {
   var conteneur = document.getElementById('all-projects-grid');
   if (!conteneur) return;
@@ -73,10 +70,28 @@ function afficherTousProjets(filtre) {
   }
 }
 
-// ─── CRÉER UNE CARTE PROJET ───────────────────────────
+// CRÉER UNE CARTE PROJET
 function creerCarteProjet(projet) {
   var carte = document.createElement('div');
   carte.className = 'project-card reveal';
+
+  // Déterminer le préfixe de chemin (ex: '../' si dans pages/)
+  var prefix = '';
+  var scriptEl = document.querySelector('script[src*="script.js"]');
+  if (scriptEl) {
+    var src = scriptEl.getAttribute('src');
+    if (src && src.indexOf('../') === 0) {
+      prefix = '../';
+    }
+  }
+
+  // Image de bannière si elle existe
+  var bannerHtml = '';
+  if (projet.image) {
+    bannerHtml = '<div class="project-banner">' +
+      '<img src="' + prefix + 'assets/img/' + projet.image + '" alt="' + projet.nom + '" loading="lazy">' +
+      '</div>';
+  }
 
   // Barre de completion
   var barreHtml = '';
@@ -93,17 +108,19 @@ function creerCarteProjet(projet) {
   }
   techHtml += '</div>';
 
-  carte.innerHTML =
+  carte.innerHTML = bannerHtml +
+    '<div class="project-card-body">' +
     '<p class="project-name">' + projet.nom + '</p>' +
     '<p class="project-desc">' + projet.desc + '</p>' +
     techHtml + barreHtml +
     '<a href="' + projet.url + '" target="_blank" rel="noopener" class="project-link">' +
-    '↗ Voir sur GitHub</a>';
+    '↗ Voir sur GitHub</a>' +
+    '</div>';
 
   return carte;
 }
 
-// ─── INJECTION : SOCIALS ──────────────────────────────
+// INJECTION : SOCIALS
 function afficherSocials() {
   var conteneur = document.getElementById('socials-grid');
   if (!conteneur) return;
@@ -125,11 +142,11 @@ function afficherSocials() {
   }
 }
 
-// ─── REVEAL AU SCROLL (Intersection Observer) ─────────
+// REVEAL AU SCROLL
 function initReveal() {
   var elements = document.querySelectorAll('.reveal');
 
-  // Vérifier si IntersectionObserver est disponible
+  // IntersectionObserver : https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API#overview
   if (!window.IntersectionObserver) {
     // Fallback : tout afficher
     for (var i = 0; i < elements.length; i++) {
@@ -157,7 +174,7 @@ function initReveal() {
   }
 }
 
-// ─── FILTRE PROJETS ───────────────────────────────────
+// FILTRE PROJETS
 function initFiltres() {
   var boutons = document.querySelectorAll('.filter-btn');
   if (!boutons.length) return;
@@ -179,7 +196,7 @@ function initFiltres() {
   }
 }
 
-// ─── FORMULAIRE DE CONTACT ────────────────────────────
+// FORMULAIRE DE CONTACT
 function initFormulaire() {
   var form = document.getElementById('contact-form');
   if (!form) return;
@@ -218,7 +235,7 @@ function initFormulaire() {
   });
 }
 
-// ─── INITIALISATION ───────────────────────────────────
+// INITIALISATION
 document.addEventListener('DOMContentLoaded', function () {
   // Injecter le contenu
   afficherSkills();

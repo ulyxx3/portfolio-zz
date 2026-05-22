@@ -1,28 +1,7 @@
 <?php
-/**
- * php/traitement.php — Traitement du formulaire de contact
- * Portfolio ULYXX3 — Cours PHP BUT MMI 1
- *
- * Stratégie : au lieu d'utiliser mail() (peu fiable sur pedaweb),
- * on enregistre le message dans une base de données MySQL.
- *
- * ── PRÉREQUIS ──────────────────────────────────────────────────
- * Créer la table dans phpMyAdmin (ou via le terminal MySQL) :
- *
- *   CREATE TABLE messages (
- *     id         INT AUTO_INCREMENT PRIMARY KEY,
- *     nom        VARCHAR(100)  NOT NULL,
- *     email      VARCHAR(200)  NOT NULL,
- *     sujet      VARCHAR(200)  NOT NULL,
- *     message    TEXT          NOT NULL,
- *     date_envoi DATETIME      DEFAULT NOW()
- *   );
- *
- * ── CONFIGURATION ──────────────────────────────────────────────
- * Modifier les constantes ci-dessous avec vos identifiants pedaweb.
- **/
 
-// ─── CONNEXION PDO (pedaweb) ──────────────────────────
+// php/traitement.php — Traitement du formulaire de contact
+
 // Les variables d'environnement $_SERVER['dbHost'] etc. sont injectées
 // automatiquement par le serveur pedaweb — pas besoin de les écrire en dur.
 try {
@@ -37,13 +16,13 @@ try {
   die('Erreur de connexion : ' . $e->getMessage());
 }
 
-// ─── RÉCUPÉRATION DES DONNÉES ($_POST) ───────────────
+// RÉCUPÉRATION DES DONNÉES ($_POST)
 $nom     = isset($_POST['nom'])     ? trim($_POST['nom'])     : '';
 $email   = isset($_POST['email'])   ? trim($_POST['email'])   : '';
 $sujet   = isset($_POST['sujet'])   ? trim($_POST['sujet'])   : '';
 $message = isset($_POST['message']) ? trim($_POST['message']) : '';
 
-// ─── VALIDATION ──────────────────────────────────────
+// VALIDATION
 $erreurs = array();
 
 if (strlen($nom) < 2) {
@@ -59,15 +38,13 @@ if (strlen($message) < 10) {
   $erreurs[] = 'Le message est trop court (minimum 10 caractères).';
 }
 
-// ─── ENREGISTREMENT EN BASE DE DONNÉES ───────────────
+// ENREGISTREMENT EN BASE DE DONNÉES
 $succes = false;
 
 if (count($erreurs) === 0) {
 
   try {
-    // Requête préparée — les marqueurs (:nom, :email...) remplacent
-    // les vraies valeurs ; PDO s'occupe lui-même d'échapper les données
-    // (pas besoin de mysqli_real_escape_string ni de guillemets manuels)
+    // Requête préparée — les marqueurs (:nom, :email...) remplacent les vraies valeurs
     $sql = "INSERT INTO messages (nom, email, sujet, message)
             VALUES (:nom, :email, :sujet, :message)";
 
@@ -116,7 +93,7 @@ if (count($erreurs) === 0) {
     <div class="container" style="text-align: center; max-width: 600px;">
 
       <?php if ($succes) : ?>
-        <!-- ✅ SUCCÈS -->
+        <!-- SUCCÈS -->
         <div style="font-size: 3rem; margin-bottom: 1rem;">✓</div>
         <h1 style="font-family: var(--font-mono); font-size: 2rem; color: #4ade80; margin-bottom: 1rem;">
           Message enregistré !
@@ -130,7 +107,7 @@ if (count($erreurs) === 0) {
         <a href="../index.html" class="btn-primary">← Retour à l'accueil</a>
 
       <?php else : ?>
-        <!-- ❌ ERREURS -->
+        <!-- ERREURS -->
         <div style="font-size: 3rem; margin-bottom: 1rem;">✕</div>
         <h1 style="font-family: var(--font-mono); font-size: 2rem; color: #f87171; margin-bottom: 1rem;">
           Formulaire invalide
