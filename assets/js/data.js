@@ -1,6 +1,6 @@
 /* =====================================================
    DATA.JS — Portfolio ULYXX3
-   Toutes les données du site (projets, socials, skills)
+   Toutes les données du site
 ===================================================== */
 
 // PROJETS
@@ -204,7 +204,56 @@ var projets = [
     stars: 1,
     image: "CroustiMovies.png"
   }
+];
 
+// CRÉATIONS
+// Chaque création a les propriétés :
+//   titre      {string}  — titre affiché
+//   cat        {string}  — catégorie et date (ex: "2D Animation · 2026")
+//   desc       {string}  — description courte
+//   tags       {Array}   — outils/tags utilisés
+//   meta       {string}  — info méta en bas de carte (ex: "BUT-MMI · 2026")
+//   ytId       {string}  — ID de la vidéo YouTube (ex: "_ZD-fT-YSIE")
+//   featured   {boolean} — true si affiché en vedette sur l'accueil
+var creations = [
+  {
+    titre: "Animation 2D — BUT MMI 1",
+    titreCourt: "Animation 2D — MMI1",
+    cat: "2D Animation · 2026",
+    desc: "Projet d'animation 2D réalisé en première année de BUT MMI. Exploration des fondamentaux du mouvement et de l'animation image par image.",
+    tags: ["Clip Studio Paint", "Projet académique"],
+    meta: "BUT-MMI · 2026",
+    ytId: "_ZD-fT-YSIE",
+    featured: true
+  },
+  {
+    titre: "L'espace et le Temps",
+    cat: "Animation · Concours · 2024",
+    desc: "Animation réalisée pour le Concours des Beaux-Arts d'Aix-en-Provence sur le thème « L'espace et le temps ».",
+    tags: ["Adobe Animate", "After Effects"],
+    meta: "Beaux-Arts Aix · 2024",
+    ytId: "aa9eG3QiZ28",
+    featured: true
+  },
+  {
+    titre: "Animation 2D — L1 Arts Plastiques",
+    cat: "2D Animation · 2025",
+    desc: "Projet d'animation réalisé en première année de Licence Arts Plastiques. Techniques mixtes combinant dessin traditionnel et composition numérique.",
+    tags: ["Adobe Animate", "After Effects"],
+    meta: "L1 Arts · 2025",
+    ytId: "7kaqRD_RNAw",
+    featured: false
+  },
+  {
+    titre: "Vidéo Dystopique — VFX",
+    titreCourt: "Vidéo Dystopique",
+    cat: "VFX · Montage · 2025",
+    desc: "Vidéo dystopique sur le thème de la surveillance de masse. Effets visuels numériques et montage narratif immersif.",
+    tags: ["Premiere Pro", "After Effects"],
+    meta: "L1 Arts · 2025",
+    ytId: "4luvSpc8-rc",
+    featured: true
+  }
 ];
 
 // RÉSEAUX SOCIAUX

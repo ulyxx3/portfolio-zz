@@ -8,8 +8,9 @@
     content="Portfolio de Ulyxx3 — Développeur web, créatif, étudiant en BUT MMI. Projets de développement, animations 2D, vidéos et réseaux sociaux.">
   <title>ULYXX3 — Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
@@ -25,23 +26,14 @@
       <li><a href="pages/videos.html">Créations</a></li>
       <li><a href="pages/contact.html">Contact</a></li>
     </ul>
-    <button id="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-bg">
-      <div class="grid-overlay"></div>
-      <div class="glow-orb orb-1"></div>
-      <div class="glow-orb orb-2"></div>
-    </div>
+    <div class="hero-bg"></div>
     <div class="hero-content">
-      <p class="hero-tag">// Étudiant BUT MMI · Développeur · Créatif</p>
-      <h1 class="hero-title">
-        <span class="glitch" data-text="ULYXX3">ULYXX3</span>
-      </h1>
+      <p class="hero-tag">Ulysse SOUCARET · Étudiant BUT MMI · Développeur · Animateur 2D</p>
+      <h1 class="hero-title">ULYXX3</h1>
       <p class="hero-desc">Je construis des expériences web et des créations visuelles à l'intersection du code et du
         design.</p>
       <div class="hero-actions">
@@ -73,7 +65,6 @@
           <div class="skills-grid" id="skills-grid"></div>
         </div>
         <div class="about-card">
-          <div class="card-glow"></div>
           <div class="stat-block">
             <span class="stat-num" id="counter-projets">0</span>
             <span class="stat-label">Projets Dev</span>
@@ -114,28 +105,8 @@
         <h2>Créations visuelles</h2>
         <div class="section-line"></div>
       </div>
-      <div class="videos-preview">
-        <a href="https://www.youtube.com/watch?v=_ZD-fT-YSIE" target="_blank" rel="noopener" class="video-card">
-          <img src="https://i.ytimg.com/vi/_ZD-fT-YSIE/hqdefault.jpg" alt="Animation 2D MMI1" loading="lazy">
-          <div class="video-info">
-            <span class="video-tag">2D Animation</span>
-            <h3>Animation 2D — MMI1</h3>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/watch?v=aa9eG3QiZ28" target="_blank" rel="noopener" class="video-card">
-          <img src="https://i.ytimg.com/vi/aa9eG3QiZ28/hqdefault.jpg" alt="Concours Beaux Arts" loading="lazy">
-          <div class="video-info">
-            <span class="video-tag">Animation · Concours</span>
-            <h3>L'espace et le Temps</h3>
-          </div>
-        </a>
-        <a href="https://www.youtube.com/watch?v=4luvSpc8-rc" target="_blank" rel="noopener" class="video-card">
-          <img src="https://i.ytimg.com/vi/4luvSpc8-rc/hqdefault.jpg" alt="VFX Dystopique" loading="lazy">
-          <div class="video-info">
-            <span class="video-tag">VFX · Montage</span>
-            <h3>Vidéo Dystopique</h3>
-          </div>
-        </a>
+      <div class="videos-preview" id="videos-preview">
+        <!-- Les aperçus vidéo seront injectés dynamiquement par script.js -->
       </div>
       <div class="section-cta">
         <a href="pages/videos.html" class="btn-outline">Voir toutes les créations →</a>

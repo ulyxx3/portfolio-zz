@@ -8,156 +8,11 @@
     content="Créations visuelles et vidéos de Ulyxx3 — Animation 2D, montage, VFX et projets graphiques.">
   <title>Créations — ULYXX3</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/style.css">
-  <style>
-    .creations-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 2rem;
-    }
-
-    .creation-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      transition: var(--transition);
-    }
-
-    .creation-card:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-4px);
-      box-shadow: var(--glow);
-    }
-
-    .creation-thumb {
-      position: relative;
-      overflow: hidden;
-      display: block;
-    }
-
-    .creation-thumb img {
-      width: 100%;
-      height: 200px;
-      object-fit: cover;
-      transition: transform 0.4s ease;
-    }
-
-    .creation-card:hover .creation-thumb img {
-      transform: scale(1.05);
-    }
-
-    .creation-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.4);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      transition: opacity var(--transition);
-    }
-
-    .creation-card:hover .creation-overlay {
-      opacity: 1;
-    }
-
-    .play-btn {
-      width: 52px;
-      height: 52px;
-      border-radius: 50%;
-      background: var(--accent);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      color: #080b10;
-      font-weight: bold;
-    }
-
-    .creation-body {
-      padding: 1.2rem;
-    }
-
-    .creation-cat {
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-
-    .creation-title {
-      font-size: 1rem;
-      font-weight: 600;
-      margin: 0.4rem 0 0.6rem;
-    }
-
-    .creation-desc {
-      font-size: 0.82rem;
-      color: var(--text-dim);
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .creation-tags {
-      display: flex;
-      gap: 0.4rem;
-      flex-wrap: wrap;
-      margin-bottom: 0.8rem;
-    }
-
-    .creation-tag {
-      padding: 0.15rem 0.5rem;
-      border: 1px solid var(--border);
-      border-radius: 4px;
-      font-family: var(--font-mono);
-      font-size: 0.65rem;
-      color: var(--text-dim);
-    }
-
-    .creation-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      color: var(--text-dim);
-    }
-
-    .watch-link {
-      color: var(--accent);
-      transition: opacity var(--transition);
-    }
-
-    .watch-link:hover {
-      opacity: 0.7;
-    }
-
-    .embeds-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-      gap: 2rem;
-    }
-
-    .embed-card h3 {
-      font-size: 0.9rem;
-      font-family: var(--font-mono);
-      color: var(--text-dim);
-      margin-bottom: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    @media (max-width: 480px) {
-      .embeds-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -170,14 +25,11 @@
       <li><a href="videos.html" class="active">Créations</a></li>
       <li><a href="contact.html">Contact</a></li>
     </ul>
-    <button id="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </button>
   </nav>
 
   <div class="page-hero">
     <div class="container">
-      <span class="hero-tag">// Production vidéo & graphique</span>
+      <span class="hero-tag">Créations visuelles & graphiques</span>
       <h1>Créations visuelles</h1>
       <p>Animation 2D, montage vidéo, VFX et travaux graphiques</p>
     </div>
@@ -191,147 +43,8 @@
         <div class="section-line"></div>
       </div>
 
-      <div class="creations-grid">
-
-        <div class="creation-card reveal">
-          <a href="https://www.youtube.com/watch?v=_ZD-fT-YSIE" target="_blank" rel="noopener" class="creation-thumb">
-            <img src="https://i.ytimg.com/vi/_ZD-fT-YSIE/hqdefault.jpg" alt="Animation 2D MMI1" loading="lazy">
-            <div class="creation-overlay">
-              <div class="play-btn">▶</div>
-            </div>
-          </a>
-          <div class="creation-body">
-            <p class="creation-cat">2D Animation · 2026</p>
-            <h2 class="creation-title">Animation 2D — BUT MMI 1</h2>
-            <p class="creation-desc">Projet d'animation 2D réalisé en première année de BUT MMI. Exploration des
-              fondamentaux du mouvement et de l'animation image par image.</p>
-            <div class="creation-tags">
-              <span class="creation-tag">Clip Studio Paint</span>
-              <span class="creation-tag">Projet académique</span>
-            </div>
-            <div class="creation-meta">
-              <span>BUT-MMI · 2026</span>
-              <a href="https://www.youtube.com/watch?v=_ZD-fT-YSIE" target="_blank" rel="noopener" class="watch-link">↗
-                YouTube</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="creation-card reveal">
-          <a href="https://www.youtube.com/watch?v=aa9eG3QiZ28" target="_blank" rel="noopener" class="creation-thumb">
-            <img src="https://i.ytimg.com/vi/aa9eG3QiZ28/hqdefault.jpg" alt="Concours Beaux Arts" loading="lazy">
-            <div class="creation-overlay">
-              <div class="play-btn">▶</div>
-            </div>
-          </a>
-          <div class="creation-body">
-            <p class="creation-cat">Animation · Concours · 2024</p>
-            <h2 class="creation-title">L'espace et le Temps</h2>
-            <p class="creation-desc">Animation réalisée pour le Concours des Beaux-Arts d'Aix-en-Provence sur le thème «
-              L'espace et le temps ».</p>
-            <div class="creation-tags">
-              <span class="creation-tag">Adobe Animate</span>
-              <span class="creation-tag">After Effects</span>
-            </div>
-            <div class="creation-meta">
-              <span>Beaux-Arts Aix · 2024</span>
-              <a href="https://www.youtube.com/watch?v=aa9eG3QiZ28" target="_blank" rel="noopener" class="watch-link">↗
-                YouTube</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="creation-card reveal">
-          <a href="https://www.youtube.com/watch?v=7kaqRD_RNAw" target="_blank" rel="noopener" class="creation-thumb">
-            <img src="https://i.ytimg.com/vi/7kaqRD_RNAw/hqdefault.jpg" alt="Animation 2D L1 Arts" loading="lazy">
-            <div class="creation-overlay">
-              <div class="play-btn">▶</div>
-            </div>
-          </a>
-          <div class="creation-body">
-            <p class="creation-cat">2D Animation · 2025</p>
-            <h2 class="creation-title">Animation 2D — L1 Arts Plastiques</h2>
-            <p class="creation-desc">Projet d'animation réalisé en première année de Licence Arts Plastiques. Techniques
-              mixtes combinant dessin traditionnel et composition numérique.</p>
-            <div class="creation-tags">
-              <span class="creation-tag">Adobe Animate</span>
-              <span class="creation-tag">After Effects</span>
-            </div>
-            <div class="creation-meta">
-              <span>L1 Arts · 2025</span>
-              <a href="https://www.youtube.com/watch?v=7kaqRD_RNAw" target="_blank" rel="noopener" class="watch-link">↗
-                YouTube</a>
-            </div>
-          </div>
-        </div>
-
-        <div class="creation-card reveal">
-          <a href="https://www.youtube.com/watch?v=4luvSpc8-rc" target="_blank" rel="noopener" class="creation-thumb">
-            <img src="https://i.ytimg.com/vi/4luvSpc8-rc/hqdefault.jpg" alt="VFX Dystopique" loading="lazy">
-            <div class="creation-overlay">
-              <div class="play-btn">▶</div>
-            </div>
-          </a>
-          <div class="creation-body">
-            <p class="creation-cat">VFX · Montage · 2025</p>
-            <h2 class="creation-title">Vidéo Dystopique — VFX</h2>
-            <p class="creation-desc">Vidéo dystopique sur le thème de la surveillance de masse. Effets visuels
-              numériques et montage narratif immersif.</p>
-            <div class="creation-tags">
-              <span class="creation-tag">Premiere Pro</span>
-              <span class="creation-tag">After Effects</span>
-            </div>
-            <div class="creation-meta">
-              <span>L1 Arts · 2025</span>
-              <a href="https://www.youtube.com/watch?v=4luvSpc8-rc" target="_blank" rel="noopener" class="watch-link">↗
-                YouTube</a>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <!-- EMBEDS -->
-      <div style="margin-top: 4rem;">
-        <div class="section-header">
-          <span class="section-tag">02</span>
-          <h2>À regarder directement</h2>
-          <div class="section-line"></div>
-        </div>
-        <div class="embeds-grid">
-          <div class="embed-card reveal">
-            <h3>Animation 2D MMI</h3>
-            <div class="video-embed-wrapper">
-              <iframe src="https://www.youtube.com/embed/_ZD-fT-YSIE" title="Animation 2D MMI1"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="embed-card reveal">
-            <h3>L'espace et le Temps — Beaux Arts</h3>
-            <div class="video-embed-wrapper">
-              <iframe src="https://www.youtube.com/embed/aa9eG3QiZ28" title="Concours des Beaux Arts"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="embed-card reveal">
-            <h3>Vidéo Dystopique</h3>
-            <div class="video-embed-wrapper">
-              <iframe src="https://www.youtube.com/embed/4luvSpc8-rc" title="VFX Dystopique"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
-          <div class="embed-card reveal">
-            <h3>Animation L1 Arts</h3>
-            <div class="video-embed-wrapper">
-              <iframe src="https://www.youtube.com/embed/7kaqRD_RNAw" title="Animation L1 Arts Plastiques"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
+      <div class="creations-grid" id="creations-grid">
+        <!-- Les créations vidéo seront injectées dynamiquement par script.js -->
       </div>
 
     </div>

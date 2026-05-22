@@ -5,14 +5,6 @@
 ===================================================== */
 
 
-function toggleMenu() {
-  var btn = document.getElementById('menu-toggle');
-  var links = document.querySelector('.nav-links');
-  if (btn && links) {
-    btn.classList.toggle('open');
-    links.classList.toggle('open');
-  }
-}
 
 // COMPTEUR ANIMÉ
 function animerCompteur(idElement, valeurFinale, duree) {
@@ -142,6 +134,84 @@ function afficherSocials() {
   }
 }
 
+// INJECTION : CRÉATIONS (page vidéos)
+function afficherCreations() {
+  var conteneur = document.getElementById('creations-grid');
+  if (!conteneur) return;
+
+  conteneur.innerHTML = '';
+
+  for (var i = 0; i < creations.length; i++) {
+    var c = creations[i];
+    var carte = document.createElement('div');
+    carte.className = 'creation-card reveal';
+
+    // HTML de l'iframe embed YouTube avec referrerpolicy correcte
+    var embedHtml = '<div class="video-embed-wrapper">' +
+      '<iframe src="https://www.youtube.com/embed/' + c.ytId + '" title="' + c.titre + '" ' +
+      'allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" ' +
+      'allowfullscreen loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>' +
+      '</div>';
+
+    // Tags
+    var tagsHtml = '<div class="creation-tags">';
+    for (var t = 0; t < c.tags.length; t++) {
+      tagsHtml += '<span class="creation-tag">' + c.tags[t] + '</span>';
+    }
+    tagsHtml += '</div>';
+
+    carte.innerHTML = embedHtml +
+      '<div class="creation-body">' +
+      '<p class="creation-cat">' + c.cat + '</p>' +
+      '<h2 class="creation-title">' + c.titre + '</h2>' +
+      '<p class="creation-desc">' + c.desc + '</p>' +
+      tagsHtml +
+      '<div class="creation-meta">' +
+      '<span>' + c.meta + '</span>' +
+      '<a href="https://www.youtube.com/watch?v=' + c.ytId + '" target="_blank" rel="noopener" class="watch-link">↗ YouTube</a>' +
+      '</div>' +
+      '</div>';
+
+    conteneur.appendChild(carte);
+  }
+}
+
+// INJECTION : CRÉATIONS (page accueil)
+function afficherCreationsAccueil() {
+  var conteneur = document.getElementById('videos-preview');
+  if (!conteneur) return;
+
+  conteneur.innerHTML = '';
+
+  for (var i = 0; i < creations.length; i++) {
+    var c = creations[i];
+    if (!c.featured) continue;
+
+    var title = c.titreCourt || c.titre;
+
+    // Extraire le tag court de la catégorie (ex: "2D Animation · 2026" -> "2D Animation")
+    var parts = c.cat.split(' · ');
+    if (parts.length > 1 && !isNaN(parts[parts.length - 1])) {
+      parts.pop(); // Enlever l'année
+    }
+    var tagCourt = parts.join(' · ');
+
+    var carte = document.createElement('a');
+    carte.className = 'video-card';
+    carte.href = 'https://www.youtube.com/watch?v=' + c.ytId;
+    carte.target = '_blank';
+    carte.rel = 'noopener';
+    carte.innerHTML =
+      '<img src="https://i.ytimg.com/vi/' + c.ytId + '/hqdefault.jpg" alt="' + title + '" loading="lazy">' +
+      '<div class="video-info">' +
+      '<span class="video-tag">' + tagCourt + '</span>' +
+      '<h3>' + title + '</h3>' +
+      '</div>';
+
+    conteneur.appendChild(carte);
+  }
+}
+
 // REVEAL AU SCROLL
 function initReveal() {
   var elements = document.querySelectorAll('.reveal');
@@ -196,45 +266,6 @@ function initFiltres() {
   }
 }
 
-// FORMULAIRE DE CONTACT
-function initFormulaire() {
-  var form = document.getElementById('contact-form');
-  if (!form) return;
-
-  form.addEventListener('submit', function (e) {
-    var nom = document.getElementById('nom').value.trim();
-    var email = document.getElementById('email').value.trim();
-    var sujet = document.getElementById('sujet') ? document.getElementById('sujet').value.trim() : '';
-    var message = document.getElementById('message').value.trim();
-    var msg = document.getElementById('form-msg');
-
-    // Validation simple
-    if (nom === '' || email === '' || sujet === '' || message === '') {
-      e.preventDefault(); // Bloquer l'envoi
-      msg.className = 'form-msg error';
-      msg.textContent = 'Veuillez remplir tous les champs.';
-      return;
-    }
-
-    if (email.indexOf('@') === -1) {
-      e.preventDefault(); // Bloquer l'envoi
-      msg.className = 'form-msg error';
-      msg.textContent = 'Adresse email invalide.';
-      return;
-    }
-
-    if (message.length < 10) {
-      e.preventDefault(); // Bloquer l'envoi
-      msg.className = 'form-msg error';
-      msg.textContent = 'Le message est trop court (min. 10 caractères).';
-      return;
-    }
-
-    // Si tout est OK, on ne bloque pas (pas de e.preventDefault())
-    // Le formulaire est envoyé naturellement à php/traitement.php
-  });
-}
-
 // INITIALISATION
 document.addEventListener('DOMContentLoaded', function () {
   // Injecter le contenu
@@ -242,25 +273,18 @@ document.addEventListener('DOMContentLoaded', function () {
   afficherProjetsAccueil();
   afficherTousProjets('tous');
   afficherSocials();
+  afficherCreations();
+  afficherCreationsAccueil();
   initFiltres();
-  initFormulaire();
 
   // Compteurs (page accueil)
   setTimeout(function () {
-    animerCompteur('counter-projets', 18, 1500);
-    animerCompteur('counter-videos', 6, 1500);
-    animerCompteur('counter-socials', 12, 1500);
+    animerCompteur('counter-projets', projets.length, 1500);
+    animerCompteur('counter-videos', creations.length, 1500);
+    animerCompteur('counter-socials', socials.length, 1500);
   }, 800);
 
   // Révélation au scroll (après injection du contenu)
   setTimeout(function () { initReveal(); }, 300);
 
-  // Fermer menu mobile en cliquant un lien
-  var liens = document.querySelectorAll('.nav-links a');
-  for (var i = 0; i < liens.length; i++) {
-    liens[i].addEventListener('click', function () {
-      document.querySelector('.nav-links').classList.remove('open');
-      document.getElementById('menu-toggle').classList.remove('open');
-    });
-  }
 });
