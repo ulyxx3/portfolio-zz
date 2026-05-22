@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contactez Ulyxx3 — étudiant en BUT MMI, développeur et créatif.">
+  <title>Contact — ULYXX3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">ULY<span>XX3</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="projets.html">Projets</a></li>
+      <li><a href="videos.html">Créations</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <button id="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <span class="hero-tag">// Écrivez-moi</span>
+      <h1>Contact</h1>
+      <p>Une idée de collaboration, une question, une opportunité ?</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- FORMULAIRE -->
+        <div class="reveal">
+          <div class="section-header" style="margin-bottom:2rem;">
+            <span class="section-tag">01</span>
+            <h2>Formulaire</h2>
+            <div class="section-line"></div>
+          </div>
+
+          <!--
+            Le formulaire envoie les données en POST vers traitement.php (dans /php/).
+            Côté serveur (PHP), les données sont récupérées via $_POST.
+            La validation JS s'effectue d'abord, avant l'envoi.
+          -->
+          <form
+            id="contact-form"
+            action="../php/traitement.php"
+            method="post"
+            novalidate>
+
+            <div class="form-group">
+              <label for="nom">Votre nom</label>
+              <input type="text" id="nom" name="nom" placeholder="Jean Dupont" autocomplete="name">
+            </div>
+            <div class="form-group">
+              <label for="email">Adresse email</label>
+              <input type="email" id="email" name="email" placeholder="jean@exemple.fr" autocomplete="email">
+            </div>
+            <div class="form-group">
+              <label for="sujet">Sujet</label>
+              <input type="text" id="sujet" name="sujet" placeholder="Projet, collaboration, question...">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre projet ou votre demande..."></textarea>
+            </div>
+
+            <div id="form-msg" class="form-msg"></div>
+
+            <button type="submit" class="btn-primary" style="width:100%; border:none; cursor:pointer;">
+              Envoyer le message
+            </button>
+          </form>
+        </div>
+
+        <!-- RÉSEAUX -->
+        <div class="reveal">
+          <div class="section-header" style="margin-bottom:2rem;">
+            <span class="section-tag">02</span>
+            <h2>Réseaux</h2>
+            <div class="section-line"></div>
+          </div>
+          <p style="color: var(--text-dim); margin-bottom: 2rem; line-height: 1.8;">
+            Je suis actif sur plusieurs plateformes. N'hésitez pas à me retrouver là où vous êtes le plus à l'aise.
+          </p>
+          <div class="socials-grid" id="socials-grid"></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">ULY<span>XX3</span></p>
+      <p class="footer-copy">© 2026 Ulyxx3 · BUT MMI Aix-en-Provence</p>
+      <nav class="footer-nav">
+        <a href="../index.html">Accueil</a>
+        <a href="projets.html">Projets</a>
+        <a href="videos.html">Créations</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

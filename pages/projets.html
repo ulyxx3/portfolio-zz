@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projets de développement de Ulyxx3 — Web, jeux, outils CLI, shaders et plus encore.">
+  <title>Projets — ULYXX3</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Chemin vers le CSS : on remonte d'un dossier avec ../ -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="../index.html" class="nav-logo">ULY<span>XX3</span></a>
+    <ul class="nav-links">
+      <li><a href="../index.html">Accueil</a></li>
+      <li><a href="projets.html" class="active">Projets</a></li>
+      <li><a href="videos.html">Créations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button id="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="hero-tag">// github.com/Ulyxx3</span>
+      <h1>Mes projets</h1>
+      <p>Développement web, jeux, outils CLI, shaders, organisations GitHub</p>
+    </div>
+  </div>
+
+  <!-- SECTION PROJETS -->
+  <section class="section">
+    <div class="container">
+
+      <!-- FILTRES -->
+      <div class="filter-bar">
+        <button class="filter-btn active" data-filtre="tous">Tous</button>
+        <button class="filter-btn" data-filtre="personnel">Personnel · @Ulyxx3</button>
+        <button class="filter-btn" data-filtre="stream">StreamMusicViewer</button>
+        <button class="filter-btn" data-filtre="mmi">BUT-MMI</button>
+      </div>
+
+      <!-- GRILLE (injectée par JS) -->
+      <div class="projects-grid" id="all-projects-grid"></div>
+
+      <!-- ORGANISATIONS -->
+      <div class="section-header" style="margin-top: 4rem;">
+        <span class="section-tag">ORG</span>
+        <h2>Organisations GitHub</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid">
+        <a href="https://github.com/StreamMusicViewer" target="_blank" rel="noopener" class="project-card reveal">
+          <p class="project-name">StreamMusicViewer</p>
+          <p class="project-desc">Organisation dédiée aux outils d'affichage de musique pour les streamers. Intégration Spotify / Last.fm en temps réel.</p>
+          <div class="project-tech">
+            <span class="tech-badge">JS</span>
+            <span class="tech-badge">HTML</span>
+            <span class="tech-badge">CSS</span>
+          </div>
+          <span class="project-link">↗ Voir sur GitHub</span>
+        </a>
+        <a href="https://github.com/BUT-MMI" target="_blank" rel="noopener" class="project-card reveal">
+          <p class="project-name">BUT-MMI</p>
+          <p class="project-desc">Organisation regroupant les projets académiques du BUT Métiers du Multimédia et de l'Internet. Projets collectifs et travaux scolaires.</p>
+          <div class="project-tech">
+            <span class="tech-badge">PHP</span>
+            <span class="tech-badge">JS</span>
+            <span class="tech-badge">HTML</span>
+          </div>
+          <span class="project-link">↗ Voir sur GitHub</span>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">ULY<span>XX3</span></p>
+      <p class="footer-copy">© 2026 Ulyxx3 · BUT MMI Aix-en-Provence</p>
+      <nav class="footer-nav">
+        <a href="../index.html">Accueil</a>
+        <a href="projets.html">Projets</a>
+        <a href="videos.html">Créations</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Chemin vers le JS : on remonte d'un dossier avec ../ -->
+  <script src="../assets/js/data.js"></script>
+  <script src="../assets/js/script.js"></script>
+</body>
+</html>

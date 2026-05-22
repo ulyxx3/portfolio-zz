@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio de Ulyxx3 — Développeur web, créatif, étudiant en BUT MMI. Projets de développement, animations 2D, vidéos et réseaux sociaux.">
+  <title>ULYXX3 — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">ULY<span>XX3</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="pages/projets.html">Projets</a></li>
+      <li><a href="pages/videos.html">Créations</a></li>
+      <li><a href="pages/contact.html">Contact</a></li>
+    </ul>
+    <button id="menu-toggle" aria-label="Menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <div class="grid-overlay"></div>
+      <div class="glow-orb orb-1"></div>
+      <div class="glow-orb orb-2"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-tag">// Étudiant BUT MMI · Développeur · Créatif</p>
+      <h1 class="hero-title">
+        <span class="glitch" data-text="ULYXX3">ULYXX3</span>
+      </h1>
+      <p class="hero-desc">Je construis des expériences web et des créations visuelles à l'intersection du code et du design.</p>
+      <div class="hero-actions">
+        <a href="pages/projets.html" class="btn-primary">Voir les projets</a>
+        <a href="pages/contact.html" class="btn-outline">Me contacter</a>
+      </div>
+    </div>
+    <div class="scroll-hint">
+      <span>scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- À PROPOS -->
+  <section id="apropos" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">01</span>
+        <h2>À propos</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="about-grid">
+        <div class="about-text">
+          <p>Étudiant en <strong>BUT MMI 1</strong> (Métiers du Multimédia et de l'Internet), je développe des projets web et des créations visuelles depuis plusieurs années. Je combine développement technique et sensibilité créative.</p>
+          <p>Mon parcours mêle <strong>Arts Plastiques</strong> (L1) et informatique, ce qui me donne une approche unique : coder avec intention artistique.</p>
+          <div class="skills-grid" id="skills-grid"></div>
+        </div>
+        <div class="about-card">
+          <div class="card-glow"></div>
+          <div class="stat-block">
+            <span class="stat-num" id="counter-projets">0</span>
+            <span class="stat-label">Projets Dev</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num" id="counter-videos">0</span>
+            <span class="stat-label">Créations vidéo</span>
+          </div>
+          <div class="stat-block">
+            <span class="stat-num" id="counter-socials">0</span>
+            <span class="stat-label">Réseaux sociaux</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJETS FEATURED -->
+  <section id="projets-featured" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">02</span>
+        <h2>Projets dev</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="projects-grid" id="projects-grid"></div>
+      <div class="section-cta">
+        <a href="pages/projets.html" class="btn-outline">Tous les projets →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRÉATIONS VIDÉO -->
+  <section id="videos-featured" class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">03</span>
+        <h2>Créations visuelles</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="videos-preview">
+        <a href="https://www.youtube.com/watch?v=_ZD-fT-YSIE" target="_blank" rel="noopener" class="video-card">
+          <img src="https://i.ytimg.com/vi/_ZD-fT-YSIE/hqdefault.jpg" alt="Animation 2D MMI1" loading="lazy">
+          <div class="video-info">
+            <span class="video-tag">2D Animation</span>
+            <h3>Animation 2D — MMI1</h3>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=aa9eG3QiZ28" target="_blank" rel="noopener" class="video-card">
+          <img src="https://i.ytimg.com/vi/aa9eG3QiZ28/hqdefault.jpg" alt="Concours Beaux Arts" loading="lazy">
+          <div class="video-info">
+            <span class="video-tag">Animation · Concours</span>
+            <h3>L'espace et le Temps</h3>
+          </div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=4luvSpc8-rc" target="_blank" rel="noopener" class="video-card">
+          <img src="https://i.ytimg.com/vi/4luvSpc8-rc/hqdefault.jpg" alt="VFX Dystopique" loading="lazy">
+          <div class="video-info">
+            <span class="video-tag">VFX · Montage</span>
+            <h3>Vidéo Dystopique</h3>
+          </div>
+        </a>
+      </div>
+      <div class="section-cta">
+        <a href="pages/videos.html" class="btn-outline">Voir toutes les créations →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- RÉSEAUX SOCIAUX -->
+  <section id="socials" class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">04</span>
+        <h2>Retrouvez-moi</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="socials-grid" id="socials-grid"></div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="container footer-inner">
+      <p class="footer-logo">ULY<span>XX3</span></p>
+      <p class="footer-copy">© 2026 Ulyxx3 · BUT MMI Aix-en-Provence</p>
+      <nav class="footer-nav">
+        <a href="index.html">Accueil</a>
+        <a href="pages/projets.html">Projets</a>
+        <a href="pages/videos.html">Créations</a>
+        <a href="pages/contact.html">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="assets/js/data.js"></script>
+  <script src="assets/js/script.js"></script>
+</body>
+</html>
